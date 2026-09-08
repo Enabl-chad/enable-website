@@ -1,0 +1,235 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Contact page — real copy pulled from the Signal Dark design canvas
+// (Contact.dc.html artboard), Phase 2 of the build plan.
+//
+// Form submits to Formspree — swap FORM_ENDPOINT for the real endpoint
+// once a Formspree form is created (or replace with a Cloudflare Pages
+// Function at /api/contact — see build plan Phase 2 notes). The `_gotcha`
+// field is a honeypot: real visitors never see or fill it, so anything
+// that submits it gets silently discarded by Formspree.
+const FORM_ENDPOINT = 'https://formspree.io/f/xdeoplnn';
+---
+
+<Layout
+	title="Contact — enabl"
+	description="Tell us where things stand — concept, prototype, or scaling — and we'll follow up to figure out where Enabl fits."
+>
+	<section class="contact">
+		<div class="contact__header">
+			<div class="eyebrow">
+				<span class="eyebrow__dot"></span>
+				<span>Contact</span>
+			</div>
+			<h1>Let's talk about your program.</h1>
+			<p>
+				Tell us where things stand — concept, prototype, or scaling — and we'll follow up to
+				figure out where Enabl fits.
+			</p>
+		</div>
+
+		<div class="contact__body">
+			<form class="contact-form" method="POST" action={FORM_ENDPOINT}>
+				<div class="contact-form__row">
+					<div class="field">
+						<label for="name">Name</label>
+						<input class="sd-field" id="name" name="name" type="text" placeholder="Your name" required />
+					</div>
+					<div class="field">
+						<label for="company">Company</label>
+						<input class="sd-field" id="company" name="company" type="text" placeholder="Company (optional)" />
+					</div>
+				</div>
+				<div class="field">
+					<label for="email">Email</label>
+					<input class="sd-field" id="email" name="email" type="email" placeholder="you@company.com" required />
+				</div>
+				<div class="field">
+					<label for="message">What are you working on?</label>
+					<textarea
+						class="sd-field"
+						id="message"
+						name="message"
+						rows="5"
+						placeholder="A little about the program and where it stands today."
+						required></textarea>
+				</div>
+				<input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+				<button class="btn btn--solid" type="submit">Send message</button>
+			</form>
+
+			<div class="contact-info">
+				<div class="contact-info__item">
+					<div class="contact-info__label">Email</div>
+					<a href="mailto:connect@enabl.co">connect@enabl.co</a>
+				</div>
+				<div class="contact-info__item">
+					<div class="contact-info__label">Based in</div>
+					<div class="contact-info__value">Nebraska, heart of the U.S.</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<style>
+		.eyebrow {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 13px;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: var(--color-muted);
+		}
+		.eyebrow__dot {
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+			flex: none;
+			background: var(--color-pink);
+		}
+
+		.contact {
+			max-width: 1280px;
+			margin: 0 auto;
+			padding: 0 var(--gutter-mobile);
+		}
+		.contact__header {
+			display: flex;
+			flex-direction: column;
+			gap: 18px;
+			max-width: 680px;
+			padding: 48px 0 56px;
+		}
+		.contact__header h1 {
+			font-size: 36px;
+			line-height: 1.1;
+			font-weight: 700;
+			letter-spacing: -0.02em;
+		}
+		.contact__header p {
+			font-size: 17px;
+			line-height: 1.6;
+			color: var(--color-text);
+			margin: 0;
+		}
+
+		.contact__body {
+			display: flex;
+			gap: 64px;
+			align-items: flex-start;
+			flex-wrap: wrap;
+			padding-bottom: 96px;
+		}
+
+		.contact-form {
+			display: flex;
+			flex-direction: column;
+			gap: 18px;
+			width: 100%;
+			max-width: 600px;
+			flex-shrink: 0;
+		}
+		.contact-form__row {
+			display: flex;
+			gap: 16px;
+			flex-wrap: wrap;
+		}
+		.field {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			flex-grow: 1;
+		}
+		.field label {
+			font-size: 13px;
+			color: var(--color-muted);
+		}
+		.sd-field {
+			background: #12101a;
+			border: 1px solid var(--color-border);
+			border-radius: var(--radius-control);
+			padding: 12px 14px;
+			color: var(--color-text-hi);
+			font-family: var(--font-body);
+			font-size: 14px;
+			width: 100%;
+		}
+		.sd-field::placeholder {
+			color: #5e5a6c;
+		}
+		.sd-field:focus {
+			outline: none;
+			border-color: var(--color-blue);
+		}
+		textarea.sd-field {
+			resize: vertical;
+		}
+		.hp-field {
+			position: absolute;
+			left: -9999px;
+			width: 1px;
+			height: 1px;
+			opacity: 0;
+			pointer-events: none;
+		}
+		.btn {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 4px;
+			padding: 14px 28px;
+			border-radius: var(--radius-control);
+			font-family: var(--font-body);
+			font-size: 15px;
+			font-weight: 600;
+			border: none;
+			cursor: pointer;
+			width: fit-content;
+		}
+		.btn--solid {
+			background: var(--cta-bg);
+			color: var(--cta-text);
+		}
+		.btn--solid:hover {
+			opacity: 0.9;
+		}
+
+		.contact-info {
+			display: flex;
+			flex-direction: column;
+			gap: 28px;
+			padding-top: 8px;
+		}
+		.contact-info__label {
+			font-size: 13px;
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
+			color: var(--color-muted-2);
+			margin-bottom: 8px;
+		}
+		.contact-info a,
+		.contact-info__value {
+			font-size: 16px;
+			color: var(--color-text-hi);
+			font-weight: 500;
+		}
+		.contact-info a {
+			text-decoration: none;
+		}
+		.contact-info a:hover {
+			color: #c9a6f5;
+		}
+
+		@media (min-width: 1024px) {
+			.contact {
+				padding-left: var(--gutter-desktop);
+				padding-right: var(--gutter-desktop);
+			}
+			.contact__header h1 {
+				font-size: 44px;
+			}
+		}
+	</style>
+</Layout>

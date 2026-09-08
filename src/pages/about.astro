@@ -1,0 +1,243 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+
+// About page — real copy pulled from the Signal Dark design canvas
+// (About.dc.html artboard), Phase 2 of the build plan.
+---
+
+<Layout
+	title="About — enabl"
+	description="Enabl is a telecom engineering partner covering mechanical design, RF design, supply chain, and solution scoping under one team."
+>
+	<!-- intro -->
+	<section class="intro">
+		<div class="eyebrow">
+			<span class="eyebrow__dot"></span>
+			<span>About Enabl</span>
+		</div>
+		<h1>Engineering that thinks past the prototype.</h1>
+		<p>
+			Enabl exists to close the gap between a promising concept and a product that actually
+			ships, sells, and scales — one engagement, one integrated team, at a time.
+		</p>
+		<div class="eyebrow eyebrow--muted">
+			<span class="eyebrow__dot eyebrow__dot--blue"></span>
+			<span>Based in Nebraska, heart of the U.S.</span>
+		</div>
+	</section>
+
+	<!-- how we work -->
+	<section class="how-we-work">
+		<div class="how-we-work__inner">
+			<div class="how-we-work__heading">
+				<h2>How we work</h2>
+			</div>
+			<div class="how-we-work__copy">
+				<p>
+					Most technical partners specialize in one discipline and hand you off at the boundary.
+					We built Enabl the other way: one team that stays engaged across mechanical, RF, supply
+					chain, and program scoping, so nothing gets lost at the seams between them.
+				</p>
+				<p>
+					We work as an embedded partner, not a one-off vendor — close enough to the program to
+					catch a problem before it becomes a delay, and accountable for the outcome, not just the
+					deliverable in front of us.
+				</p>
+				<a href="/#enabling" class="text-link">See what enabling looks like →</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- principles -->
+	<section class="principles">
+		<h2>What that means in practice</h2>
+		<div class="principles__grid">
+			<Card>
+				<h3>One team, every discipline</h3>
+				<p>
+					Mechanical, RF, supply chain, and scoping under a single point of accountability — not
+					four vendors to coordinate yourself.
+				</p>
+			</Card>
+			<Card>
+				<h3>Embedded, not outsourced</h3>
+				<p>
+					We run inside your program's rhythm — the same calls, the same decisions — rather than
+					working at arm's length.
+				</p>
+			</Card>
+			<Card>
+				<h3>Built for a global supply chain</h3>
+				<p>
+					Manufacturing partnerships spanning multiple regions, so a program has options when the
+					geopolitical picture shifts.
+				</p>
+			</Card>
+		</div>
+	</section>
+
+	<!-- closing CTA -->
+	<section class="closing-cta">
+		<h2>Ready to move from concept to deployment-ready?</h2>
+		<Button href="/contact">Start a conversation</Button>
+	</section>
+
+	<style>
+		.eyebrow {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 13px;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			color: var(--color-muted);
+		}
+		.eyebrow--muted {
+			font-size: 14px;
+			letter-spacing: normal;
+			text-transform: none;
+			color: var(--color-muted);
+			margin-top: 4px;
+		}
+		.eyebrow__dot {
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+			flex: none;
+			background: var(--color-pink);
+		}
+		.eyebrow__dot--blue {
+			background: var(--color-blue);
+		}
+		.text-link {
+			font-size: 15px;
+			color: var(--color-text);
+			font-weight: 500;
+			text-decoration: none;
+		}
+		.text-link:hover {
+			color: var(--color-text-hi);
+		}
+
+		.intro {
+			display: flex;
+			flex-direction: column;
+			gap: 22px;
+			max-width: 760px;
+			margin: 0 auto;
+			padding: 56px var(--gutter-mobile) 80px;
+		}
+		.intro h1 {
+			font-size: 40px;
+			line-height: 1.1;
+			font-weight: 700;
+			letter-spacing: -0.02em;
+		}
+		.intro p {
+			font-size: 18px;
+			line-height: 1.6;
+			color: var(--color-text);
+			margin: 0;
+		}
+
+		.how-we-work {
+			background: #0f0d15;
+			border-top: 1px solid var(--color-border-soft);
+			border-bottom: 1px solid var(--color-border-soft);
+			padding: 80px var(--gutter-mobile);
+		}
+		.how-we-work__inner {
+			display: flex;
+			gap: 64px;
+			align-items: flex-start;
+			max-width: 1280px;
+			margin: 0 auto;
+			flex-wrap: wrap;
+		}
+		.how-we-work__heading {
+			width: 280px;
+			flex-shrink: 0;
+		}
+		.how-we-work__heading h2 {
+			font-size: 28px;
+			font-weight: 700;
+			letter-spacing: -0.01em;
+		}
+		.how-we-work__copy {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			max-width: 640px;
+		}
+		.how-we-work__copy p {
+			font-size: 16px;
+			line-height: 1.65;
+			color: var(--color-text);
+			margin: 0;
+		}
+
+		.principles {
+			max-width: 1280px;
+			margin: 0 auto;
+			padding: 80px var(--gutter-mobile);
+		}
+		.principles h2 {
+			font-size: 28px;
+			font-weight: 700;
+			letter-spacing: -0.01em;
+			margin: 0 0 40px;
+		}
+		.principles__grid {
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: 28px;
+		}
+		.principles__grid h3 {
+			font-size: 17px;
+			font-weight: 600;
+			margin: 0 0 12px;
+		}
+		.principles__grid p {
+			font-size: 14px;
+			line-height: 1.6;
+			color: var(--color-muted);
+			margin: 0;
+		}
+
+		.closing-cta {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			gap: 24px;
+			max-width: 640px;
+			margin: 0 auto;
+			padding: 96px var(--gutter-mobile);
+		}
+		.closing-cta h2 {
+			font-size: 34px;
+			font-weight: 700;
+			letter-spacing: -0.01em;
+		}
+
+		@media (min-width: 1024px) {
+			.intro,
+			.how-we-work,
+			.principles {
+				padding-left: var(--gutter-desktop);
+				padding-right: var(--gutter-desktop);
+			}
+			.intro h1 {
+				font-size: 48px;
+			}
+		}
+
+		@media (max-width: 640px) {
+			.principles__grid {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+</Layout>
