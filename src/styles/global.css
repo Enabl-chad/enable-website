@@ -1,0 +1,76 @@
+/* Enabl design tokens — from the Signal Dark canvas.
+   Change values here, not in individual components. */
+:root {
+	/* surfaces */
+	--color-bg: #0b0a0f;
+	--color-surface: #16131f;
+	--color-border: #241f30;
+	--color-border-soft: #1d1926;
+
+	/* text */
+	--color-text: #c7c2d1;
+	--color-text-hi: #f5f3f7;
+	--color-muted: #8b8596;
+	--color-muted-2: #716c80;
+
+	/* brand */
+	--color-pink: #ff2fd6;
+	--color-purple: #9b3ee8;
+	--color-blue: #2e7fff;
+	--gradient-brand: linear-gradient(90deg, var(--color-pink), var(--color-purple), var(--color-blue));
+
+	/* cta */
+	--cta-bg: #2e7fff;
+	--cta-text: #f5f3f7;
+
+	/* spacing / radii */
+	--gutter-desktop: 80px;
+	--gutter-mobile: 24px;
+	--radius-card: 12px;
+	--radius-control: 8px;
+
+	/* type */
+	--font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+	--font-body: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: var(--color-bg);
+	color: var(--color-text);
+	font-family: var(--font-body);
+	font-size: 16px;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-display);
+	color: var(--color-text-hi);
+	font-weight: 600;
+	margin: 0;
+}
+
+a {
+	color: inherit;
+}
+
+img,
+svg {
+	display: block;
+	max-width: 100%;
+}

@@ -1,0 +1,61 @@
+---
+import WaveformMark from './WaveformMark.astro';
+import GradientText from './GradientText.astro';
+---
+
+<header class="nav">
+	<div class="nav__inner">
+		<a href="/" class="nav__brand" aria-label="Enabl home">
+			<WaveformMark variant="gradient" />
+			<span class="nav__wordmark"><GradientText>enabl</GradientText></span>
+		</a>
+		<nav class="nav__links" aria-label="Primary">
+			<a href="/about">About</a>
+			<a href="/blog">Blog</a>
+			<a href="/contact">Contact</a>
+		</nav>
+	</div>
+</header>
+
+<style>
+	.nav {
+		border-bottom: 1px solid var(--color-border-soft);
+	}
+	.nav__inner {
+		max-width: 1280px;
+		margin: 0 auto;
+		padding: 20px var(--gutter-mobile);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.nav__brand {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		text-decoration: none;
+	}
+	.nav__wordmark {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: 18px;
+	}
+	.nav__links {
+		display: flex;
+		gap: 28px;
+	}
+	.nav__links a {
+		text-decoration: none;
+		color: var(--color-text);
+		font-size: 14.5px;
+	}
+	.nav__links a:hover {
+		color: var(--color-text-hi);
+	}
+	@media (min-width: 1024px) {
+		.nav__inner {
+			padding-left: var(--gutter-desktop);
+			padding-right: var(--gutter-desktop);
+		}
+	}
+</style>

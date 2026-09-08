@@ -1,16 +1,72 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+import GradientText from '../components/GradientText.astro';
+
 // Home page — scaffold only. Built out in Phase 2 of the build plan
 // (hero, Enabling section w/ sticky jump menu, services grid, closing CTA).
+// This page exists right now to prove the design tokens and shared
+// components (Nav, Footer, Button, Card, GradientText, WaveformMark)
+// all render correctly together.
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>enabl — wireless engineering &amp; RF systems</title>
-	</head>
-	<body>
-		<h1>enabl.co</h1>
-		<p>Site scaffold is live. Components and content come next.</p>
-	</body>
-</html>
+<Layout title="enabl — wireless engineering & RF systems">
+	<section class="hero">
+		<h1>Building the <GradientText>enabl</GradientText> design system</h1>
+		<p>
+			Tokens and shared components are wired up — Nav, Footer, Button, Card, GradientText, and the
+			WaveformMark all render from one source now. Real page content lands in Phase 2.
+		</p>
+		<Button href="/contact">Get in touch</Button>
+	</section>
+
+	<section class="preview">
+		<Card>
+			<h3>Card</h3>
+			<p>Surface for services-grid items and principle cards — background, border, and radius from tokens.</p>
+		</Card>
+		<Card>
+			<h3>Button</h3>
+			<Button href="#" variant="solid">Solid</Button>
+			<Button href="#" variant="ghost">Ghost</Button>
+		</Card>
+	</section>
+
+	<style>
+		.hero {
+			max-width: 640px;
+			margin: 0 auto;
+			padding: 96px 24px 48px;
+			text-align: center;
+		}
+		.hero h1 {
+			font-size: 32px;
+			margin-bottom: 16px;
+		}
+		.hero p {
+			color: var(--color-muted);
+			margin-bottom: 28px;
+		}
+		.preview {
+			max-width: 1280px;
+			margin: 0 auto 96px;
+			padding: 0 24px;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 16px;
+		}
+		.preview h3 {
+			margin-bottom: 8px;
+		}
+		.preview p {
+			color: var(--color-muted);
+			font-size: 14px;
+		}
+		@media (max-width: 640px) {
+			.preview {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+</Layout>

@@ -1,0 +1,48 @@
+---
+// Renders an <a> when given `href`, a <button> otherwise — so the same
+// component covers CTA links and form-submit buttons.
+interface Props {
+	href?: string;
+	variant?: 'solid' | 'ghost';
+	type?: 'button' | 'submit';
+}
+const { href, variant = 'solid', type = 'button' } = Astro.props;
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag class={`btn btn--${variant}`} href={href} type={href ? undefined : type}>
+	<slot />
+</Tag>
+
+<style>
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		padding: 12px 24px;
+		border-radius: var(--radius-control);
+		font-family: var(--font-body);
+		font-weight: 500;
+		font-size: 15px;
+		text-decoration: none;
+		cursor: pointer;
+		border: 1px solid transparent;
+		transition: opacity 0.15s ease, border-color 0.15s ease;
+	}
+	.btn--solid {
+		background: var(--cta-bg);
+		color: var(--cta-text);
+	}
+	.btn--solid:hover {
+		opacity: 0.9;
+	}
+	.btn--ghost {
+		background: transparent;
+		color: var(--color-text);
+		border-color: var(--color-border);
+	}
+	.btn--ghost:hover {
+		border-color: var(--color-muted-2);
+	}
+</style>

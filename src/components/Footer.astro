@@ -1,0 +1,37 @@
+---
+import WaveformMark from './WaveformMark.astro';
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+	<div class="footer__inner">
+		<WaveformMark variant="muted" size={22} />
+		<p class="footer__copy">&copy; {year} Enabl Development. All rights reserved.</p>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		border-top: 1px solid var(--color-border-soft);
+		margin-top: 64px;
+	}
+	.footer__inner {
+		max-width: 1280px;
+		margin: 0 auto;
+		padding: 28px var(--gutter-mobile);
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+	.footer__copy {
+		color: var(--color-muted-2);
+		font-size: 13px;
+		margin: 0;
+	}
+	@media (min-width: 1024px) {
+		.footer__inner {
+			padding-left: var(--gutter-desktop);
+			padding-right: var(--gutter-desktop);
+		}
+	}
+</style>
